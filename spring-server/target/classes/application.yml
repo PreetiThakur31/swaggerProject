@@ -1,0 +1,47 @@
+spring:
+    jackson:
+        serialization.write_dates_as_timestamps: false
+        
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://localhost:3306/tollbank?useUnicode=true&characterEncoding=utf8&useSSL=false
+        name: tollbank
+        username: root
+        password: root
+        hikari:
+            data-source-properties:
+                cachePrepStmts: true
+                prepStmtCacheSize: 250
+                prepStmtCacheSqlLimit: 2048
+                useServerPrepStmts: true
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        database: MYSQL
+        show-sql: true
+#        hibernate:
+#         ddl-auto: create-drop
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.hazelcast.use_lite_member: true
+    
+server:
+    port: 8086
+    contextPath: /v2
+    
+    ssl:
+      enabled: true
+      key-store-password: 123456
+      key-store-type: PKCS12
+      key-store: classpath:baeldung.p12
+      key-alias: baeldung
+      enabled-protocols:
+      - TLSv1.2
+
+springfox:
+    documentation:
+        swagger:
+            v2:
+                path: /api-docs
