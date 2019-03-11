@@ -108,10 +108,10 @@ public class CustomerAddress   {
     this.city = city;
   }
 
-  public CustomerAddress state(String state) {
+  /*public CustomerAddress state(String state) {
     this.state = state;
     return this;
-  }
+  }*/
 
   /**
    * Get state

@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Api(value = "Customer", description = "the addCustomer API")
 public interface CustomerApi {
+	
 
     @ApiOperation(value = "Add a new customer", nickname = "addcustomer", notes = "", tags={ "customer", })
     @ApiResponses(value = { 
@@ -48,7 +49,7 @@ public interface CustomerApi {
         @ApiResponse(code = 500, message = "Error Occured.", response = ErrorResponse.class) })
     @RequestMapping(value = "/deleteCustomerById",
         produces = { "application/json" }, 
-        consumes = { "application/json" },
+        /*consumes = { "application/json" },*/
         method = RequestMethod.DELETE)
     ResponseEntity<Void> deleteCustomer(@NotNull @ApiParam(value = "Customer object that needs to be stored", required = true) @Valid @RequestParam(value = "customerId", required = true) String customerId);
 
@@ -57,27 +58,17 @@ public interface CustomerApi {
     
     @ApiOperation(value = "Find  an existing customer", nickname = "findCustomer", notes = "", tags={ "customer", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Success"),
+        @ApiResponse(code = 200, message = "Success", response = Customer.class),
         @ApiResponse(code = 400, message = "Parameter do not match the expected format.", response = ErrorResponse.class),
         @ApiResponse(code = 500, message = "Error Occured.", response = ErrorResponse.class) })
     @RequestMapping(value = "/findCustomerById",
         produces = { "application/json" }, 
-        consumes = { "application/json" },
+        /*consumes = { "application/json" },*/
         method = RequestMethod.GET)
-    ResponseEntity<Void> findCustomer(@NotNull @ApiParam(value = "Customer object that needs to be stored", required = true) @Valid @RequestParam(value = "customerId", required = true) String customerId);
+    ResponseEntity<?> findCustomer(@NotNull @ApiParam(value = "Customer object that needs to be stored", required = true) @Valid @RequestParam(value = "customerId", required = true) String customerId);
 
-    @ApiOperation(value = "Update an existing customer", nickname = "updateCustomer", notes = "", tags={ "customer", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Success"),
-        @ApiResponse(code = 400, message = "Parameter do not match the expected format.", response = ErrorResponse.class),
-        @ApiResponse(code = 500, message = "Error Occured.", response = ErrorResponse.class) })
-    @RequestMapping(value = "/updateCustomer",
-        produces = { "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.PUT)
-    ResponseEntity<Void> updateCustomer(@ApiParam(value = "Customer object that needs to be stored" ,required=true )  @Valid @RequestBody Customer body);
-
-    @ApiOperation(value = "get customer ATM details", nickname = "saveCustomerATMDetails", notes = "", tags={ "customer", })
+   
+    @ApiOperation(value = "save customer ATM details", nickname = "saveCustomerATMDetails", notes = "", tags={ "customer", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Success"),
         @ApiResponse(code = 400, message = "Parameter do not match the expected format.", response = ErrorResponse.class),
@@ -96,7 +87,7 @@ public interface CustomerApi {
         @ApiResponse(code = 500, message = "Error Occured.", response = ErrorResponse.class) })
     @RequestMapping(value = "/getCustomerATMDetails",
         produces = { "application/json" }, 
-        consumes = { "application/json" },
+        /*consumes = { "application/json" },*/
         method = RequestMethod.GET)
     ResponseEntity<CustomerATMDetails> getCustomerATMDetails(@NotNull @ApiParam(value = "Customer ATM object that needs to be fetched", required = true) @Valid @RequestParam(value = "customerId", required = true) String customerId);
 

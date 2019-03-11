@@ -2,9 +2,9 @@ package io.swagger.model.db;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
 
@@ -18,25 +18,25 @@ public class ATMDetails implements Serializable{
 	
 	
 	@NotNull
-	@Size(max = 50)
+	@Column(name = "atm_number")
 	private Long ATMNumber;
 	
 	@NotNull
-	@Size(max = 50)
+	@Column(name = "name_on_the_card")
 	private String nameOnTheCard;
 	
 	@NotNull
-	@Size(max = 50)
+	@Column(name = "max_withdraw_limit")
 	private Long maxWithdrawLimit;
 
-	public ATMDetails( Long aTMNumber, String nameOnTheCard,
+	/*public ATMDetails( Long aTMNumber, String nameOnTheCard,
 			Long maxWithdrawLimit) {
 		super();
 		
 		ATMNumber = aTMNumber;
 		this.nameOnTheCard = nameOnTheCard;
 		this.maxWithdrawLimit = maxWithdrawLimit;
-	}
+	}*/
 
 	public Long getATMNumber() {
 		return ATMNumber;

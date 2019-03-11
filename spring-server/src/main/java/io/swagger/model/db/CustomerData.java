@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "customer")
@@ -25,18 +26,23 @@ public class CustomerData implements Serializable{
 
 	  @Id
 	  @Column(name = "customer_id")
+	  @Size(max =50)
 	  private String customerId = null;
 
 	  @Column(name = "customer_first_name")
+	  @Size(max =50)
 	  private String customerFirstName = null;
 
 	  @Column(name = "customer_last_name")
+	  @Size(max =50)
 	  private String customerLastName = null;
 
 	  @Column(name = "mobile_no")
+	  @Size(max =10)
 	  private String mobileNo = null;
 
 	  @Column(name = "email_id")
+	  @Size(max =50)
 	  private String emailId = null;
 
 	  @OneToMany(fetch=FetchType.LAZY,mappedBy = "customerData", cascade = CascadeType.ALL)

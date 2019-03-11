@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,23 +16,19 @@ public class CustomerAccountsData {
 	
 	  @Id
 	  @Column(name = "account_no")
-	  @Size(max = 50)
-	  private Long accountNo = null;
+	  @Size(max=50)
+	  private String accountNo = null;
 
 	  @Column(name = "balance")
-	  @Size(max = 50)
-	  private Long balance = null;
+	  private Integer balance = null;
 
 	  @Column(name = "account_type")
-	  @Size(max = 50)
 	  private String accountType = null;
 	  
 	  @Column(name = "credit")
-	  @Size(max = 50)
 	  private Long credit = null;
 
 	  @Column(name = "debit")
-	  @Size(max = 50)
 	  private Long debit = null;
 	  
 	  @ManyToOne
@@ -40,26 +38,20 @@ public class CustomerAccountsData {
 	  
 	  public CustomerAccountsData(){}
 		
-	  /*public CustomerAccountsData(CustomerData customerData){
-		  System.out.println("constructor called.");
-			this.customerData=customerData;
-		
-		}*/
-	  
 	    
-	public Long getAccountNo() {
+	public String getAccountNo() {
 		return accountNo;
 	}
 
-	public void setAccountNo(Long accountNo) {
+	public void setAccountNo(String accountNo) {
 		this.accountNo = accountNo;
 	}
 
-	public Long getBalance() {
+	public Integer getBalance() {
 		return balance;
 	}
 
-	public void setBalance(Long Balance) {
+	public void setBalance(Integer Balance) {
 		this.balance = Balance;
 	}
 

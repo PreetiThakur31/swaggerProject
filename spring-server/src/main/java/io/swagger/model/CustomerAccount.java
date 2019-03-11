@@ -19,13 +19,13 @@ public class CustomerAccount   {
   private String customerId = null;*/
 
   @JsonProperty("accountNo")
-  private Long accountNo = null;
+  private String accountNo = null;
   
   @JsonProperty("accountType")
   private String accountType = null;
 
   @JsonProperty("availableBalance")
-  private Long availableBalance = null;
+  private Integer availableBalance = null;
 
   @JsonProperty("credit")
   private Long credit = null;
@@ -53,7 +53,7 @@ public class CustomerAccount   {
     this.customerId = customerId;
   }*/
 
-  public CustomerAccount accountNo(Long accountNo) {
+  public CustomerAccount accountNo(String accountNo) {
     this.accountNo = accountNo;
     return this;
   }
@@ -65,11 +65,11 @@ public class CustomerAccount   {
   @ApiModelProperty(value = "")
 
 
-  public Long getAccountNo() {
+  public String getAccountNo() {
     return accountNo;
   }
 
-  public void setAccountNo(Long accountNo) {
+  public void setAccountNo(String accountNo) {
     this.accountNo = accountNo;
   }
 
@@ -81,7 +81,7 @@ public void setAccountType(String accountType) {
 	this.accountType = accountType;
 }
 
-public CustomerAccount availableBalance(Long availableBalance) {
+public CustomerAccount availableBalance(Integer availableBalance) {
     this.availableBalance = availableBalance;
     return this;
   }
@@ -93,11 +93,11 @@ public CustomerAccount availableBalance(Long availableBalance) {
   @ApiModelProperty(value = "")
 
 
-  public Long getAvailableBalance() {
+  public Integer getAvailableBalance() {
     return availableBalance;
   }
 
-  public void setAvailableBalance(Long availableBalance) {
+  public void setAvailableBalance(Integer availableBalance) {
     this.availableBalance = availableBalance;
   }
 

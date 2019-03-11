@@ -35,9 +35,9 @@ public class Customer   {
   @JsonProperty("email-id")
   private String emailId = null;
 
-  @JsonProperty("CustomerAccountDetails")
+  @JsonProperty("CustomerAccount")
   @Valid
-  private List<CustomerAccount> customerAccountDetails = null;
+  private List<CustomerAccount> customerAccount = null;
 
   @JsonProperty("customerAddress")
   private CustomerAddress customerAddress = null;
@@ -142,16 +142,16 @@ public class Customer   {
     this.emailId = emailId;
   }
 
-  public Customer customerAccountDetails(List<CustomerAccount> customerAccountDetails) {
-    this.customerAccountDetails = customerAccountDetails;
+  public Customer customerAccount(List<CustomerAccount> customerAccount) {
+    this.customerAccount = customerAccount;
     return this;
   }
 
   public Customer addCustomerAccountDetailsItem(CustomerAccount customerAccountDetailsItem) {
-    if (this.customerAccountDetails == null) {
-      this.customerAccountDetails = new ArrayList<CustomerAccount>();
+    if (this.customerAccount == null) {
+      this.customerAccount = new ArrayList<CustomerAccount>();
     }
-    this.customerAccountDetails.add(customerAccountDetailsItem);
+    this.customerAccount.add(customerAccountDetailsItem);
     return this;
   }
 
@@ -163,12 +163,14 @@ public class Customer   {
 
   @Valid
 
-  public List<CustomerAccount> getCustomerAccountDetails() {
-    return customerAccountDetails;
+  public List<CustomerAccount> getCustomerAccount() {
+    return customerAccount;
   }
 
-  public void setCustomerAccountDetails(List<CustomerAccount> customerAccountDetails) {
-    this.customerAccountDetails = customerAccountDetails;
+  public void setCustomerAccount(List<CustomerAccount> customerAccount) {
+	  if(customerAccount!=null)
+	   System.out.println("======================setCustomerAccount==============================");
+    this.customerAccount = customerAccount;
   }
 
   public Customer customerAddress(CustomerAddress customerAddress) {
@@ -207,13 +209,13 @@ public class Customer   {
         Objects.equals(this.customerLastName, customer.customerLastName) &&
         Objects.equals(this.mobileNo, customer.mobileNo) &&
         Objects.equals(this.emailId, customer.emailId) &&
-        Objects.equals(this.customerAccountDetails, customer.customerAccountDetails) &&
+        Objects.equals(this.customerAccount, customer.customerAccount) &&
         Objects.equals(this.customerAddress, customer.customerAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerId, customerFirstName, customerLastName, mobileNo, emailId, customerAccountDetails, customerAddress);
+    return Objects.hash(customerId, customerFirstName, customerLastName, mobileNo, emailId, customerAccount, customerAddress);
   }
 
   @Override
@@ -226,7 +228,7 @@ public class Customer   {
     sb.append("    customerLastName: ").append(toIndentedString(customerLastName)).append("\n");
     sb.append("    mobileNo: ").append(toIndentedString(mobileNo)).append("\n");
     sb.append("    emailId: ").append(toIndentedString(emailId)).append("\n");
-    sb.append("    customerAccountDetails: ").append(toIndentedString(customerAccountDetails)).append("\n");
+    sb.append("    customerAccount: ").append(toIndentedString(customerAccount)).append("\n");
     sb.append("    customerAddress: ").append(toIndentedString(customerAddress)).append("\n");
     sb.append("}");
     return sb.toString();
